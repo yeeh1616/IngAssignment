@@ -1,16 +1,27 @@
 package com.example.demo002.entities;
 
-import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
+import javax.persistence.*;
 
 /**
  * Product entity.
  */
-
+@Entity
+@Table(name = "bag")
 public class Bag {
-    private Integer id;
-    private Integer appleNum;
-    private String supplier;
+    enum Supplier {
+        ROYAL_GALA,
+        PINK_LADY,
+        KANZI_APPLE,
+        ELSTAR_APPLES
+    };
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+    private Integer apple_num;
+    private Supplier supplier;
     private Date time;
     private Integer price;
 
@@ -30,27 +41,27 @@ public class Bag {
         this.time = time;
     }
 
-    public String getSupplier() {
+    public Supplier getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(String supplier) {
+    public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public Integer getAppleNum() {
-        return appleNum;
+    public Integer getApple_num() {
+        return apple_num;
     }
 
-    public void setAppleNum(Integer appleNum) {
-        this.appleNum = appleNum;
+    public void setApple_num(Integer appleNum) {
+        this.apple_num = appleNum;
     }
 }
