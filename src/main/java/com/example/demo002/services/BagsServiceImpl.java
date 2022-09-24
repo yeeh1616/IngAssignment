@@ -14,16 +14,13 @@ public class BagsServiceImpl implements BagsService {
     private BagRepository repository;
 
     @Override
-    public Iterable<Bag> listAllBags() {
-        List<Bag> bags = (List<Bag>) repository.findAll();
-
-        return bags;
+    public Iterable<Bag> listAllBags(Integer bagsNum) {
+        Iterable<Bag> res = repository.getBagsWithLimit(0, bagsNum);
+        return res;
     }
 
     @Override
     public Bag addBag(Bag bag) {
-        Bag bag2 = repository.save(bag);
-
-        return bag2;
+        return repository.save(bag);
     }
 }

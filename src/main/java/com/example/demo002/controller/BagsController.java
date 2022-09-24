@@ -13,8 +13,8 @@ public class BagsController {
     private BagsService bagsService;
 
     @GetMapping("/bagsui")
-    public String bags(Model model){
-        model.addAttribute("bags", bagsService.listAllBags());
+    public String bags(Model model, @RequestParam(name="bagsNum",defaultValue="3") Integer bagsNum){
+        model.addAttribute("bags", bagsService.listAllBags(bagsNum));
         model.addAttribute("bag", new Bag());
 
         return "bags";

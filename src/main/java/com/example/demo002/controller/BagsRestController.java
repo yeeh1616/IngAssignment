@@ -15,8 +15,8 @@ public class BagsRestController {
     private BagsService bagsService;
 
     @GetMapping("/bags")
-    public Iterable<Bag> bagsRest(Model model, @RequestParam(name="bagsNum",defaultValue="3") String bagsNum){
-        return bagsService.listAllBags();
+    public Iterable<Bag> bagsRest(Model model, @RequestParam(name="bagsNum",defaultValue="3") Integer bagsNum){
+        return bagsService.listAllBags(bagsNum);
     }
 
     @PostMapping("/add")
