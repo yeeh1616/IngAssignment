@@ -20,7 +20,7 @@ public class Bag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    private Integer apple_num;
+    private Integer applenum;
     private Supplier supplier;
     private Date time;
     private Integer price;
@@ -57,11 +57,11 @@ public class Bag {
         this.id = id;
     }
 
-    public Integer getApple_num() {
-        return apple_num;
+    public Integer getApplenum() {
+        return applenum;
     }
 
-    public void setApple_num(Integer appleNum) {
-        this.apple_num = appleNum;
+    public void setApplenum(Integer appleNum) {
+        this.applenum = appleNum;
     }
 }
